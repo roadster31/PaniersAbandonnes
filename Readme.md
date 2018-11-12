@@ -1,6 +1,8 @@
 # Paniers Abandonnes
 
-Add a short description here. You can also add a screenshot if needed.
+* This module allow you to send email after a defined time to remember customer they have items in there cart.
+
+* Ce module vous permet d’envoyer un courrier électronique après un délai défini pour rappeler aux clients qu’ils ont des articles dans leur panier.
 
 ## Installation
 
@@ -8,6 +10,9 @@ Add a short description here. You can also add a screenshot if needed.
 
 * Copy the module into ```<thelia_root>/local/modules/``` directory and be sure that the name of the module is PaniersAbandonnes.
 * Activate it in your thelia administration panel
+
+* Copiez ce module directement dans votre répertoire ```<thelia_root>/local/modules/``` et verifier que le nom du module soit PaniersAbandonnes
+* Activez le dans votre back office Thelia
 
 ### Composer
 
@@ -17,39 +22,21 @@ Add it in your main thelia composer.json file
 composer require your-vendor/paniers-abandonnes-module:~1.0
 ```
 
+
 ## Usage
 
-Explain here how to use your module, how to configure it, etc.
+* Directly in your back office, you can set a timer to send the email to the customer. But the best pratice is to set up a cron.
+In a terminal, type :
+``` crontab -e```
+and add this line a the end of your crontab file:
+```*/2 * * * * /path/to/php /path/to/Theliadirectory Thelia examiner-paniers-abandonnes >> /path/to/thelia/log/panierabandonnes.log 2>&1```
+Save it
 
-## Hook
+* Directement depuis votre back office, vous pouvez programmer un temps pour envoyer les emails à vos clients. Mais le mieux reste de programmer un cron
+Dans un terminal, tapez :
+``` crontab -e```
+Et ajoutez cette ligne à la fin de votre fichier:
+```*/2 * * * * /path/to/php /path/to/Theliadirectory Thelia examiner-paniers-abandonnes >> /path/to/thelia/log/panierabandonnes.log 2>&1```
+Sauvegarder le.
 
-If your module use one or more hook, fill this part. Explain which hooks are used.
 
-
-## Loop
-
-If your module declare one or more loop, describe them here like this :
-
-[loop name]
-
-### Input arguments
-
-|Argument |Description |
-|---      |--- |
-|**arg1** | describe arg1 with an exemple. |
-|**arg2** | describe arg2 with an exemple. |
-
-### Output arguments
-
-|Variable   |Description |
-|---        |--- |
-|$VAR1    | describe $VAR1 variable |
-|$VAR2    | describe $VAR2 variable |
-
-### Exemple
-
-Add a complete exemple of your loop
-
-## Other ?
-
-If you have other think to put, feel free to complete your readme as you want.
